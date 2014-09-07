@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<style scoped>
+    .small { font-size:0.8em; margin-left:8px;}
+    .tiles>div, .tiles>a {
+        padding: 5px;
+        border: 1px solid #ddd;
+        margin: 5px 0;
+        width: 100%;
+        background-color: rgb(171, 210, 237);
+        display: block;
+        min-height: 2em;
+    }
+    .tiles>a {
+        color: #444;
+    }
+    .tiles>a:hover {
+        text-decoration: none;
+        border: 1px solid #888;
+    }
+</style>
+<div class="row">
+    <div class="col-md-3" id="projects">
+        <h2>Projects</h2>
+        <div class="tiles"><img src="~/Images/ajax-loader.gif" alt="Loading Projects" /></div>
+    </div>
+    <div class="col-md-3" id="builds">
+        <h2>Build Status</h2>
+        <div class="tiles"><img src="~/Images/ajax-loader.gif" alt="Loading Recent Changesets" /></div>
+    </div>
+    <div class="col-md-3" id="changesets">
+        <h2>Checkins</h2>
+        <div class="tiles"><img src="~/Images/ajax-loader.gif" alt="Loading Recent Changesets" /></div>
+    </div>
+    <div class="col-md-3" id="gitrepos">
+        <h2>Git Repositories</h2>
+        <div class="tiles"><img src="~/Images/ajax-loader.gif" alt="Loading Recent Changesets" /></div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            // projects
+            var url = "api/Projects";
+            $.getJSON(url, {}, function(response) {
+                var proj = $("#projects div").empty();
+                $.each(response, function(i, e) {
+                    var content = $("<a></a>").attr({ target: "_blank", href: e.Collection.CollectionUrl+"/"+e.Name }).text(e.Name);
+                    proj.append(content);
+                });
+                console.log(response.value);
+            });
+
+            // builds
+            url = "api/Builds";
+            $.getJSON(url, {}, function(response) {
+                var proj = $("#builds div").empty();
+                $.each(response, function(i, e) {
+                    var m = moment(e.StartTime);
+                    var content = $("<div></div>").text(e.Definition.Name + " started " + m.fromNow())
+                        .append($("<div></div>").addClass("small").text(e.BuildNumber + " : " + e.Status));
+                    proj.append(content);
+                });
+                console.log(response.value);
+            });
+
+            // changsets
+            url = "api/Changesets";
+            $.getJSON(url, {}, function(response) {
+                var proj = $("#changesets div").empty();
+                $.each(response, function(i, e) {
+                    var m = moment(e.CreatedDate);
+                    var content = $("<div></div>").text(e.CheckedInBy.DisplayName + " " + m.fromNow())
+                        .append($("<div></div>").addClass("small").text(e.Comment));
+                    proj.append(content);
+                });
+                console.log(response.value);
+            });
+
+            // git repos
+            url = "api/GitRepos";
+            $.getJSON(url, {}, function(response) {
+                var proj = $("#gitrepos div").empty();
+                $.each(response, function(i, e) {
+                    var content = $("<a></a>").attr({ target: "_blank", href: e.RemoteUrl }).text(e.Name)
+                        .append($("<div></div>").addClass("small").text(e.Project.Name));
+                    proj.append(content);
+                });
+                console.log(response.value);
+            });
+        });
+    </script>
+}

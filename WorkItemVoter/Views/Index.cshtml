@@ -1,0 +1,53 @@
+﻿@inherits  Nancy.ViewEngines.Razor.NancyRazorViewBase<WorkItemVoter.Models.WorkItems>
+@{
+    Layout = "Views/_Layout.cshtml";
+    ViewBag.Title = "Vote for a Work Item";
+}
+@if (Model == null)
+{
+    <div class="row">
+        <div class="col-md-12">Sorry, not enough New Work Items to vote!</div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">Choose one of these to vote</div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 well" id="first">
+            <h3>@Model.FirstTitle</h3>
+            <button data-id="@Model.FirstId" data-rev="@Model.FirstRev" class="btn btn-default">Vote for this!</button>
+        </div>
+        <div class="col-md-5 col-md-offset-1 well" id="second">
+            <h3>@Model.SecondTitle</h3>
+            <button data-id="@Model.SecondId" data-rev="@Model.SecondRev" class="btn btn-default">Vote for this!</button>
+        </div>
+    </div>
+@section scripts {
+    <script type="text/javascript">
+        $('button').one('click touchstart', function() {
+            $('button').attr('disabled','disabled');
+            var $t = $(this);
+            var data = JSON.stringify({ id: $t.data('id'), rev: $t.data('rev') });
+            var url = '/vote';
+            $.ajax({
+                url: url,
+                data: data,
+                contentType: 'application/json',
+                type: 'POST',
+                success: function(data) {
+                    if (data.itemApproved) {
+                        alert('Thanks! Your vote pushed this Work Item into Approved!!');
+                        $t.parent().css('background-color', '#afa');
+                    } else if (data.voteSucceeded) {
+                        alert('Thanks! your vote has been counted.');
+                    } else {
+                        alert(data.errorMessage);
+                    }
+                }
+            });
+        });
+    </script>
+}
+}

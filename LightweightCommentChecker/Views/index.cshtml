@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Lightweight Comment Checker</title>
+
+    <style type="text/css">
+        .comment {
+            font-style: italic;
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Checkins since yesterday (<span id="count"></span>)</h1>
+    <ul id="lastCheckins"></ul>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var uri = "GetChangeSets";
+
+            $.getJSON(uri, function(data) {
+                    $("#count").text(data.count);
+                    var u = $("#lastCheckins");
+                    u.empty();
+                    var items = data.value.map(function(changeset) {
+                        return "<li>" + changeset.author.displayName + " checked in and commented:<br/><pre class=\"comment\">" +
+                            changeset.comment + (changeset.commentTruncated ? "..." : "") + "</pre></li>";
+                    });
+                    u.append(items);
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfNotificationEndpoint", "WcfNotificationEndpoint\WcfNotificationEndpoint.csproj", "{0CE2D538-641D-4DB8-872F-4468B6466EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientObjectModel", "ClientObjectModel\ClientObjectModel.csproj", "{B9DF4647-E4C1-4274-9515-8E24784D335F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerObjectModel", "ServerObjectModel\ServerObjectModel.csproj", "{01F86D0C-E0BD-433F-BA80-519EDCD2B386}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. WCF Notification Endpoint", "1. WCF Notification Endpoint", "{85C57A44-3060-43BB-B60F-F81279C08570}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Client Object Model", "2. Client Object Model", "{8732C1CB-AE64-4697-BD07-BD1EBBF92ADB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Server Object Model", "3. Server Object Model", "{507B8B45-3D92-4284-876B-636E9C1AAF3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. REST API", "4. REST API", "{6EF0B717-0863-42E4-9D35-10F03001A7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmDashboard", "AlmDashboard\AlmDashboard.csproj", "{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4F45EBE2-32E1-4A54-9A8F-56B7615C3E4D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightweightCommentChecker", "LightweightCommentChecker\LightweightCommentChecker.csproj", "{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_lib", "_lib", "{E3C05886-51F3-40A8-A4F0-D9F4BD83EBBF}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Microsoft.TeamFoundation.Framework.Server.dll = lib\Microsoft.TeamFoundation.Framework.Server.dll
+		lib\Microsoft.TeamFoundation.VersionControl.Server.dll = lib\Microsoft.TeamFoundation.VersionControl.Server.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CE2D538-641D-4DB8-872F-4468B6466EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE2D538-641D-4DB8-872F-4468B6466EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE2D538-641D-4DB8-872F-4468B6466EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE2D538-641D-4DB8-872F-4468B6466EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DF4647-E4C1-4274-9515-8E24784D335F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DF4647-E4C1-4274-9515-8E24784D335F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DF4647-E4C1-4274-9515-8E24784D335F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DF4647-E4C1-4274-9515-8E24784D335F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F86D0C-E0BD-433F-BA80-519EDCD2B386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F86D0C-E0BD-433F-BA80-519EDCD2B386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F86D0C-E0BD-433F-BA80-519EDCD2B386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F86D0C-E0BD-433F-BA80-519EDCD2B386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CE2D538-641D-4DB8-872F-4468B6466EA3} = {85C57A44-3060-43BB-B60F-F81279C08570}
+		{B9DF4647-E4C1-4274-9515-8E24784D335F} = {8732C1CB-AE64-4697-BD07-BD1EBBF92ADB}
+		{01F86D0C-E0BD-433F-BA80-519EDCD2B386} = {507B8B45-3D92-4284-876B-636E9C1AAF3E}
+		{9FB0F48D-2C70-47A1-AEFA-0ED93491D2D8} = {6EF0B717-0863-42E4-9D35-10F03001A7DD}
+		{68F5F5F3-B8BB-4911-875F-6F00AAE04EA6} = {6EF0B717-0863-42E4-9D35-10F03001A7DD}
+	EndGlobalSection
+EndGlobal
